@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "outDir": "dest",
+        "module": "commonjs",
+        "allowJs": true,
+        "downlevelIteration": true,
+        "locale": "zh-cmn-Hans",
+        "watch": true
+    },
+    "include": [
+        "src/**/*"
+    ]
+}
