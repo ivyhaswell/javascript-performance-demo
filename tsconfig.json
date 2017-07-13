@@ -6,6 +6,7 @@
         "allowJs": true,
         "downlevelIteration": true,
         "locale": "zh-cmn-Hans",
+        // "declaration": true,
         "watch": true
     },
     "include": [

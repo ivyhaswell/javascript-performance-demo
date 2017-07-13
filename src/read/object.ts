@@ -2,7 +2,7 @@
  * @Author: shuwen.wang
  * @Date: 2017-07-12 18:21:02
  * @Last Modified by: shuwen.wang
- * @Last Modified time: 2017-07-12 18:28:38
+ * @Last Modified time: 2017-07-12 20:09:01
  */
 export class ObjectRead
 {
@@ -31,11 +31,11 @@ export class ObjectRead
      */
     public readSpec(times: number)
     {
-        console.time('object read time[mode:spec]:')
+        console.time(`map read time[mode:spec][times:${times}][count:${this.keyCount}]:`)
         for (let i = 0; i < times; i++) {
             this.obj['0']
         }
-        console.timeEnd('object read time[mode:spec]:')
+        console.timeEnd(`map read time[mode:spec][times:${times}][count:${this.keyCount}]:`)
     }
 
     /**
@@ -46,10 +46,10 @@ export class ObjectRead
      */
     public readDync(times: number)
     {
-        console.time('object read time[mode:random]:')
+        console.time(`map read time[mode:dync][times:${times}][count:${this.keyCount}]:`)
         for (let i = 0; i < times; i++) {
             this.obj[Math.floor(Math.random() * this.keyCount)]
         }
-        console.timeEnd('object read time[mode:random]:')
+        console.timeEnd(`map read time[mode:dync][times:${times}][count:${this.keyCount}]:`)
     }
 }
