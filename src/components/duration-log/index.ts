@@ -2,44 +2,29 @@
  * @Author: shuwen.wang
  * @Date: 2017-07-12 20:11:10
  * @Last Modified by: shuwen.wang
- * @Last Modified time: 2017-07-12 20:47:16
+ * @Last Modified time: 2017-07-13 10:53:19
  */
-class DurationLog
+export class DurationLog
 {
     private prefix: string
-    private option: string[]
     private contentStr: string
-    public start: Function
-    public end: Function
 
-    constructor(prefix: string = 'task', option: string[])
+    constructor(prefix: string = 'task')
     {
         this.prefix = prefix
-        this.option = option
         this.contentStr = ''
-        this.compileOption()
     }
 
-    private compileOption()
+    public start<T>(option: T): void
     {
-        this.start = (...args) =>
-        {
-            this.option.forEach((item, index) =>
-            {
-                this.contentStr += `[${item}: ${args[index]}]`
-            })
-            console.time(this.prefix + this.contentStr)
+        for (let key in option) {
+            this.contentStr += `[${key}: ${option[key]}]`
         }
-        this.end = () =>
-        {
-            console.timeEnd(this.prefix + this.contentStr)
-            this.contentStr = ''
-        }
+        console.time(this.prefix + this.contentStr)
+    }
+
+    public end(): void
+    {
+        console.timeEnd(this.prefix + this.contentStr)
     }
 }
-
-const durationLog = new DurationLog('tatatatask', ['time', 'number'])
-durationLog.start((Date.now()), Math.random())
-setTimeout(function() {
-    durationLog.end()
-}, 1000)

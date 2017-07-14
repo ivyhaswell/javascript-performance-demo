@@ -2,8 +2,18 @@
  * @Author: shuwen.wang
  * @Date: 2017-07-12 18:21:02
  * @Last Modified by: shuwen.wang
- * @Last Modified time: 2017-07-12 20:09:01
+ * @Last Modified time: 2017-07-13 11:23:11
  */
+import { DurationLog } from '../components/duration-log'
+const durationLog = new DurationLog('map read time')
+
+interface IMapReadLog
+{
+    mode: string
+    times: number
+    count: number
+}
+
 export class ObjectRead
 {
     private obj = {}
@@ -31,11 +41,16 @@ export class ObjectRead
      */
     public readSpec(times: number)
     {
-        console.time(`map read time[mode:spec][times:${times}][count:${this.keyCount}]:`)
+        const logOption: IMapReadLog = {
+            mode: 'spec',
+            times,
+            count: this.keyCount,
+        }
+        durationLog.start(logOption)
         for (let i = 0; i < times; i++) {
             this.obj['0']
         }
-        console.timeEnd(`map read time[mode:spec][times:${times}][count:${this.keyCount}]:`)
+        durationLog.end()
     }
 
     /**
@@ -46,10 +61,15 @@ export class ObjectRead
      */
     public readDync(times: number)
     {
-        console.time(`map read time[mode:dync][times:${times}][count:${this.keyCount}]:`)
+        const logOption: IMapReadLog = {
+            mode: 'dync',
+            times,
+            count: this.keyCount,
+        }
+        durationLog.start(logOption)
         for (let i = 0; i < times; i++) {
             this.obj[Math.floor(Math.random() * this.keyCount)]
         }
-        console.timeEnd(`map read time[mode:dync][times:${times}][count:${this.keyCount}]:`)
+        durationLog.end()
     }
 }
