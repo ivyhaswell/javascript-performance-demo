@@ -2,9 +2,10 @@
  * @Author: shuwen.wang
  * @Date: 2017-07-12 18:21:02
  * @Last Modified by: shuwen.wang
- * @Last Modified time: 2017-07-13 11:23:11
+ * @Last Modified time: 2017-07-14 11:02:49
  */
-import { DurationLog } from '../components/duration-log'
+import { ReadBase } from './base'
+import { DurationLog } from '../../components/duration-log'
 const durationLog = new DurationLog('map read time')
 
 interface IMapReadLog
@@ -14,7 +15,7 @@ interface IMapReadLog
     count: number
 }
 
-export class ObjectRead
+export class ObjectRead extends ReadBase
 {
     private obj = {}
     private keyCount: number
@@ -25,6 +26,7 @@ export class ObjectRead
      */
     constructor(keyCount: number = 10)
     {
+        super()
         for (let i = 0; i < keyCount; i++) {
             Object.defineProperty(this.obj, i.toString(), {
                 value: i,

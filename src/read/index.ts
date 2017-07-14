@@ -2,15 +2,15 @@
  * @Author: shuwen.wang
  * @Date: 2017-07-12 17:49:39
  * @Last Modified by: shuwen.wang
- * @Last Modified time: 2017-07-12 19:56:01
+ * @Last Modified time: 2017-07-14 11:04:35
  */
 
-import { ObjectRead } from './object'
-import { MapRead } from './map'
-import { ArrayRead } from './array'
+import { ObjectRead } from './task/object'
+import { MapRead } from './task/map'
+import { ArrayRead } from './task/array'
 
 /**
- * ¶ÁÈ¡ÈÎÎñ²âÊÔ
+ * ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  *
  * @export
  * @class ReadTask
@@ -33,7 +33,7 @@ export class ReadTask
     }
 
     /**
-     * ÉèÖÃkeyÊýÁ¿
+     * ï¿½ï¿½ï¿½ï¿½keyï¿½ï¿½ï¿½ï¿½
      *
      * @memberof ReadTask
      */
@@ -44,7 +44,7 @@ export class ReadTask
     }
 
     /**
-     * (ÖØÐÂ)Éú³É¶ÁÈ¡ÊµÀý
+     * (ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ï¿½É¶ï¿½È¡Êµï¿½ï¿½
      *
      * @private
      * @memberof ReadTask
@@ -57,9 +57,9 @@ export class ReadTask
     }
 
     /**
-     * ¶ÁÈ¡¹Ì¶¨Öµ
+     * ï¿½ï¿½È¡ï¿½Ì¶ï¿½Öµ
      *
-     * @param {number} times ´ÎÊý
+     * @param {number} times ï¿½ï¿½ï¿½ï¿½
      * @memberof ReadTask
      */
     public readSpec(times: number)
@@ -70,7 +70,7 @@ export class ReadTask
     }
 
     /**
-     * ¶¯Ì¬¶ÁÈ¡Öµ
+     * ï¿½ï¿½Ì¬ï¿½ï¿½È¡Öµ
      *
      * @param {number} times
      * @memberof ReadTask
